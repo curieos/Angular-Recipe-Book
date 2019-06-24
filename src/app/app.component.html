@@ -1,10 +1,13 @@
-<app-header></app-header>
+<app-header (selectEvent)="OnSelectApp($event)"></app-header>
 <div class="container">
-  <div class="row"> 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="row">
+    <div class="col-xs-12">
+      <ng-container *ngIf="selectedApp === 'recipe'; else shopping">
         <app-recipes></app-recipes>
+      </ng-container>
+      <ng-template #shopping>
         <app-shopping-list></app-shopping-list>
+      </ng-template>
     </div>
   </div>
 </div>
-
